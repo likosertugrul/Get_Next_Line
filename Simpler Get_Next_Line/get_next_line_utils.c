@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ertugrullikos <ertugrullikos@student.42    +#+  +:+       +#+        */
+/*   By: prossi <prossi@student.42adel.org.au>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:20:51 by prossi            #+#    #+#             */
-/*   Updated: 2025/01/01 13:00:03 by ertugrullik      ###   ########.fr       */
+/*   Updated: 2022/09/05 13:52:52 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

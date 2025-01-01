@@ -1,14 +1,25 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
+#include "get_next_line.h"
 
-int main(void)
+char	*get_next_line(int fd)
 {
-    int fd;
-    char buf[256];
-    int chars_read;
-    fd = open("file.txt", O_RDONLY);
-    chars_read = read(fd, buf, 5);
-    buf[chars_read] = '\0';
-    printf("buff %s \n", buf);
+	char	buffer;
+	char	line[7000000];
+	int		b;
+	int		i;
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	i = 0;
+	b = read(fd, &buffer, 1);
+	while (b > 0)
+	{
+		line[i++] = buffer;
+		if (buffer == '\n')
+			break ;
+		b = read(fd, &buffer, 1);
+	}
+	line[i] = '\0';
+	if (b <= 0 && i == 0)
+		return (NULL);
+	return (ft_strdup(line));
 }

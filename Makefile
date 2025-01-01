@@ -21,7 +21,7 @@ fclean : clean
 re : fclean all
 
 run : re 
-	gcc $(FLAG) main.c geto.a
+	cc $(FLAG) main.c geto.a
 	./a.out
 
 push : 

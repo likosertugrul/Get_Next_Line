@@ -1,23 +1,31 @@
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "get_next_line.h"
 
-int main(void)
+int	main(void)
 {
-    int fd;
-    char buf[256];
-    int chars_read;
-    fd = open("file.txt", O_RDONLY);
+	int		fd;
+	char	*line;
 
-    chars_read = read(fd, buf, 42);
-    buf[chars_read] = '\0';
-    printf("%d buff %s \n", buf);
+	fd = open("file.txt", O_RDONLY);
+	if (fd < 0)
+	{
+		perror("Dosya açılamadı");
+		return (1);
+	}
 
+	while ((line = get_next_line(fd)) != NULL)
+	{
+		printf("%s", line);
+		free(line);
+	}
 
+	if (close(fd) < 0)
+	{
+		perror("Dosya kapatılamadı");
+		return (1);
+	}
 
-
-
-    // while ((chars_read = read(fd, buf, 42)))
-    // {
-    //     buf[chars_read] = '\0';
-    //     printf("buff %s \n", buf);
-    // }
+	return (0);
 }
